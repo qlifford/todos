@@ -1,0 +1,7 @@
+update {{ t.id }}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ t }}
+    <button type="submit">Save</button>
+</form>
+

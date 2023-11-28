@@ -1,0 +1,14 @@
+<h1>home page</h1>
+<a href="{% url 'createTodo' %}">Create a task</a><br>
+<ul>
+    {% for t in todo reversed %}
+        <li>
+            <form action="{% url 'deleteTodo' t.id %}" method="POST">
+                {%csrf_token %}
+                <strong>{{ t.name }}</strong>
+                <button style="color: red;" type="submit">Delete</button>
+                <a href="{% url 'updateTodo' t.id %}" style="color: blue;" type="submit">Edit</a>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
